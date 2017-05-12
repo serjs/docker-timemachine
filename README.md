@@ -86,7 +86,7 @@ There are these environment variables:
 
 * **AFP_LOGIN**: User name
 * **AFP_PASSWORD**: User password
-* **AFP_NAME**: Name of the volume
+* **MOUNT_POINT**: Name of the volume, should be an absolute path (e.g. /timemachine)
 * **AFP_SIZE_LIMIT**: Size in MB of the volume (optional)
 
 Using these variables, the container will create a user at boot time (only one per container).

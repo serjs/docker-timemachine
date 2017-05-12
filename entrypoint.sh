@@ -16,9 +16,9 @@ if [ ! -e /.initialized_afp ]; then
     touch /.initialized_afp
 fi
 
-if [ ! -e /.initialized_user ] && [ ! -z $AFP_LOGIN ] && [ ! -z $AFP_PASSWORD ] && [ ! -z $AFP_NAME ]; then
-    add-account $AFP_LOGIN $AFP_PASSWORD $AFP_NAME $AFP_SIZE_LIMIT
-    touch /.initialized_user
+if [ ! -z $AFP_LOGIN ] && [ ! -z $AFP_PASSWORD ] && [ ! -z $MOUNT_POINT ] && [ ! -e $MOUNT_POINT/.initialized_user ]; then
+    add-account $AFP_LOGIN $AFP_PASSWORD $MOUNT_POINT $AFP_SIZE_LIMIT
+    touch $MOUNT_POINT/.initialized_user
 fi
 
 /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
